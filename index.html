@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="uf-8">
+    <meta name="author" content="Luis Gama">
+    <title>Bear Ninja Hunter</title>
+</head>
+<body>
+    <div>
+
+        <p id="display"></p>
+
+        <script type="text/javascript">
+
+
+//Present a text field to gather user input.
+let playerName = prompt("Welcome to Bear Hunter Ninja! Please enter your name to get started: ");
+
+
+//Store the user's input in a variable.
+const greedings = "Let's Play!!";
+
+
+//Put together messages for the players that combine text and the values of the variables from the user input (concatenation).
+const message1 = `Hi ${playerName} ${greedings}`;
+
+//Output the concatenated strings using two (2) different output methods.
+alert(message1);
+console.log(message1);
+
+//Present a text field to gather user input.
+let character = prompt("Who are you: Bear, Ninja, or Hunter?");
+
+//Store the user's input in a variable.
+let chosenMessage;
+if (character.toLowerCase() === "ninja") {
+    chosenMessage = " You picked Ninja!!";
+} else if (character.toLowerCase() === "bear") {
+    chosenMessage = " You picked Bear!!";
+} else if (character.toLowerCase() === "hunter") {
+    chosenMessage = " You picked Hunter!!";
+} else {
+    chosenMessage = "Invalid choice!";
+}
+
+//Put together messages for the players that combine text and the values of the variables from the user input (concatenation).
+alert(` ${playerName}${chosenMessage} The computer chosse Bear!!`);
+const computerChoice = "Bear";
+const finalMessage = `You chose ${character}, the computer chose ${computerChoice}!`;
+
+//Display 
+document.getElementById("display").innerHTML = finalMessage;
+
+
+
+
+
+        </script>
+    </div>
+</body>
+
+
+
+
+</html>
