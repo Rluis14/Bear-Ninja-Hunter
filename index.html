@@ -6,14 +6,21 @@
     <meta charset="uf-8">
     <meta name="author" content="Luis Gama">
     <title>Bear Ninja Hunter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+    </style>
 </head>
 <body>
     <div>
-
         <p id="display"></p>
-
         <script type="text/javascript">
-
 
 //Present a text field to gather user input.
 let playerName = prompt("Welcome to Bear Hunter Ninja! Please enter your name to get started: ");
@@ -35,11 +42,12 @@ let character = prompt("Who are you: Bear, Ninja, or Hunter?");
 
 //Store the user's input in a variable.
 let chosenMessage;
-if (character.toLowerCase() === "ninja") {
+character = character.toLowerCase();
+if (character === "ninja") {
     chosenMessage = " You picked Ninja!!";
-} else if (character.toLowerCase() === "bear") {
+} else if (character === "bear") {
     chosenMessage = " You picked Bear!!";
-} else if (character.toLowerCase() === "hunter") {
+} else if (character === "hunter") {
     chosenMessage = " You picked Hunter!!";
 } else {
     chosenMessage = "Invalid choice!";
@@ -47,9 +55,29 @@ if (character.toLowerCase() === "ninja") {
 
 //Put together messages for the players that combine text and the values of the variables from the user input (concatenation).
 alert(` ${playerName}${chosenMessage} The computer chosse Bear!!`);
+console.log(`${playerName}, ${chosenMessage} The computer chose Bear!`);
+
 const computerChoice = "Bear";
 const finalMessage = `You chose ${character}, the computer chose ${computerChoice}!`;
+console.log(finalMessage);
 
+//Game result using switch
+let result;
+switch (character)
+{
+    case "bear":
+        result = "It's a tie!"
+        break;
+    case "ninja":
+        result = "You lose! Bear beats Ninja.";
+        break;
+    case "hunter":
+        result = "You win! Hunter beats Bear.";
+        break;
+    default:
+        result = "Invalid input. Please refresh the page and try again.";
+
+}
 //Display 
 document.getElementById("display").innerHTML = finalMessage;
 
