@@ -4,118 +4,12 @@
     <meta charset="utf-8">
     <meta name="author" content="Luis Gama">
     <title>Bear Ninja Hunter</title>
-    <!----------Style font-------------------->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .result {
-            margin-top: 20px;
-            font-size: 1.5em;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div>
         <p id="display"></p>
-        <p id="history"></p>
-        <script type="text/javascript">
-            // Array to store the choices
-            const choices = ["bear", "ninja", "hunter"];
-
-            // Initialize game stats
-            let gamesPlayed = 0;
-            let wins = 0;
-            let losses = 0;
-            let ties = 0;
-
-            // Prompt for the player's name
-            let playerName = prompt("Welcome to Bear Ninja Hunter! Please enter your name to continue: ");
-            if (playerName === null || playerName.trim() === "" || !isNaN(playerName)) {
-                // Handle invalid input
-                alert("Invalid Entry. Please refresh the page to try again.");
-                document.getElementById("display").innerHTML = "Invalid Entry<br>Please Press F5 to Play Again.";
-            } else {
-                alert(`Hi ${playerName}, Let's Play!!`);
-
-                // Start the game loop
-                while (true) {
-                    // Prompt for player choice
-                    let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
-                    if (playerChoice === null || playerChoice.trim() === "" || !isNaN(playerChoice)) {
-                        alert("Invalid input! Please refresh the page to try again.");
-                        document.getElementById("display").innerHTML = "Invalid Entry<br>Please Press F5 to Play Again.";
-                        break;
-                    }
-
-                    // Force case to lowercase
-                    playerChoice = playerChoice.toLowerCase().trim();
-
-                    // Validate choice against the array
-                    if (!choices.includes(playerChoice)) {
-                        alert("Invalid input! Please enter Bear, Ninja, or Hunter.");
-                        continue;
-                    }
-
-                    // Display countdown in console
-                    console.log("Countdown:");
-                    for (let i = 3; i >= 0; i--) {
-                        console.log(i);
-                    }
-
-                    // Randomize computer choice
-                    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
-
-                    // Determine the result using switch
-                    let result;
-                    switch (playerChoice) {
-                        case "bear":
-                            result = computerChoice === "bear" ? "It's a tie!" :
-                                     computerChoice === "ninja" ? "You lose! Ninja beats Bear." :
-                                     "You win! Bear beats Hunter.";
-                            if (computerChoice === "bear") ties++;
-                            else if (computerChoice === "ninja") losses++;
-                            else wins++;
-                            break;
-                        case "ninja":
-                            result = computerChoice === "ninja" ? "It's a tie!" :
-                                     computerChoice === "hunter" ? "You lose! Hunter beats Ninja." :
-                                     "You win! Ninja beats Bear.";
-                            if (computerChoice === "ninja") ties++;
-                            else if (computerChoice === "hunter") losses++;
-                            else wins++;
-                            break;
-                        case "hunter":
-                            result = computerChoice === "hunter" ? "It's a tie!" :
-                                     computerChoice === "bear" ? "You lose! Bear beats Hunter." :
-                                     "You win! Hunter beats Ninja.";
-                            if (computerChoice === "hunter") ties++;
-                            else if (computerChoice === "bear") losses++;
-                            else wins++;
-                            break;
-                    }
-
-                    // Update games played
-                    gamesPlayed++;
-
-                    // Display results
-                    const resultMessage = `${playerName}, you chose ${playerChoice}! The computer chose ${computerChoice}!<br>${result}`;
-                    document.getElementById("display").innerHTML = resultMessage;
-                    console.log(`${playerName} chose ${playerChoice}. The computer chose ${computerChoice}. ${result}`);
-
-                    // Prompt to play again
-                    let playAgain = prompt(`${playerName}, would you like to play again? Yes or No?`);
-                    if (playAgain === null || playAgain.trim().toLowerCase() !== "yes") {
-                        alert("Thanks for playing! Here is your game summary:");
-                        const history = `Games Played: ${gamesPlayed}<br>Wins: ${wins}<br>Losses: ${losses}<br>Ties: ${ties}`;
-                        document.getElementById("history").innerHTML = history;
-                        console.log(`Games Played: ${gamesPlayed}\nWins: ${wins}\nLosses: ${losses}\nTies: ${ties}`);
-                        break;
-                    }
-                }
-            }
-        </script>
     </div>
+    <script src="JS/script.js"></script>
 </body>
 </html>
